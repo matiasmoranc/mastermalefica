@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#0d0b10">
+  <title>Maléfica Burger · Master</title>
+  <meta name="description" content="Caja, pedidos, stock y gestión de Maléfica Burger.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d0b10'/%3E%3Cpath d='M14 39h36v5H14zm3-5c1-11 8-17 15-17s14 6 15 17H17zm8-19-5-9c6 2 10 5 12 10-2-1-5-1-7-1zm14 0 5-9c-6 2-10 5-12 10 2-1 5-1 7-1z' fill='%23c9ff55'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" data-view="pos" aria-label="Ir a caja">
+        <span class="brand-mark">M</span>
+        <span><strong>Maléfica</strong><small>BURGER · MASTER</small></span>
+      </button>
+      <nav class="main-nav" aria-label="Secciones">
+        <button class="nav-btn active" data-view="pos"><span>⌁</span>Caja</button>
+        <button class="nav-btn" data-view="orders"><span>▤</span>Pedidos <b id="pendingBadge" class="count-badge">0</b></button>
+        <button class="nav-btn" data-view="stock"><span>◇</span>Stock</button>
+        <button class="nav-btn" data-view="sales"><span>↗</span>Ventas</button>
+        <button class="nav-btn" data-view="expenses"><span>−</span>Gastos</button>
+        <button class="nav-btn" data-view="settings"><span>⚙</span>Ajustes</button>
+      </nav>
+      <div class="day-summary"><small>Ventas de hoy</small><strong id="headerSales">$0</strong></div>
+    </header>
+
+    <main>
+      <section id="view-pos" class="view active pos-view">
+        <div class="catalog-panel">
+          <div class="catalog-head">
+            <div><p class="eyebrow">NUEVO PEDIDO</p><h1>¿Qué van a pedir?</h1></div>
+            <label class="search"><span>⌕</span><input id="productSearch" type="search" placeholder="Buscar producto" autocomplete="off"></label>
+          </div>
+          <div id="categoryTabs" class="category-tabs" role="tablist"></div>
+          <div id="productGrid" class="product-grid"></div>
+        </div>
+
+        <aside class="ticket-panel">
+          <div class="ticket-head">
+            <div><p class="eyebrow">TICKET ACTUAL</p><h2>Pedido <span id="orderNumber">#1</span></h2></div>
+            <button id="clearCart" class="text-btn danger-text" disabled>Vaciar</button>
+          </div>
+          <div class="order-meta compact-grid">
+            <label><span>Cliente</span><input id="customer" placeholder="Nombre (opcional)"></label>
+            <label><span>Tipo</span><select id="orderType"><option>Retiro</option><option>Delivery</option><option>En el local</option></select></label>
+            <label><span>Origen</span><select id="source"><option>Mostrador</option><option>WhatsApp</option><option>Instagram</option><option>Teléfono</option><option>PedidosYa</option></select></label>
+            <label><span>Pago</span><select id="paymentMethod"><option>Efectivo</option><option>Débito</option><option>Crédito</option><option>Transferencia</option><option>Mercado Pago</option></select></label>
+          </div>
+          <div id="cart" class="cart"></div>
+          <div class="notes-area">
+            <div class="quick-notes"><button data-note="Sin cebolla">Sin cebolla</button><button data-note="Sin salsa">Sin salsa</button><button data-note="Bien cocida">Bien cocida</button></div>
+            <textarea id="notes" rows="2" placeholder="Observaciones para cocina"></textarea>
+          </div>
+          <div class="ticket-footer">
+            <label class="paid-check"><input id="paymentConfirmed" type="checkbox" checked><span></span>Pago confirmado</label>
+            <div class="total-row"><span>Total</span><strong id="cartTotal">$0</strong></div>
+            <button id="saveOrder" class="primary-action" disabled><span>Registrar pedido</span><strong id="actionTotal">$0</strong></button>
+          </div>
+        </aside>
+      </section>
+
+      <section id="view-orders" class="view page-view">
+        <div class="page-head"><div><p class="eyebrow">EN PREPARACIÓN</p><h1>Pedidos abiertos</h1></div><button class="secondary-action" data-view="pos">+ Nuevo pedido</button></div>
+        <div id="pendingOrders" class="order-board"></div>
+      </section>
+
+      <section id="view-stock" class="view page-view">
+        <div class="page-head"><div><p class="eyebrow">INVENTARIO</p><h1>Stock de productos</h1></div><button id="addStock" class="secondary-action">+ Agregar insumo</button></div>
+        <div class="toolbar"><label class="search wide"><span>⌕</span><input id="stockSearch" type="search" placeholder="Buscar en stock"></label><div id="stockStatusFilters" class="segmented"><button class="active" data-status="all">Todos</button><button data-status="low">Por reponer</button></div></div>
+        <div class="table-card"><div class="table-row table-head"><span>Producto o insumo</span><span>Cantidad</span><span>Mínimo</span><span>Estado</span></div><div id="stockList"></div></div>
+      </section>
+
+      <section id="view-sales" class="view page-view">
+        <div class="page-head"><div><p class="eyebrow">RENDIMIENTO</p><h1>Ventas</h1></div><label class="date-field">Fecha<input id="salesDate" type="date"></label></div>
+        <div id="salesStats" class="stats-grid"></div>
+        <div class="two-cols"><div class="content-card"><h3>Productos más vendidos</h3><div id="topProducts"></div></div><div class="content-card"><h3>Historial</h3><div id="salesHistory"></div></div></div>
+      </section>
+
+      <section id="view-expenses" class="view page-view">
+        <div class="page-head"><div><p class="eyebrow">CAJA</p><h1>Gastos</h1></div></div>
+        <div id="expenseStats" class="stats-grid"></div>
+        <div class="two-cols expense-layout">
+          <form id="expenseForm" class="content-card form-card"><h3>Registrar gasto</h3><label>Fecha<input id="expenseDate" type="date" required></label><label>Categoría<select id="expenseCategory"></select></label><label>Importe<input id="expenseAmount" type="number" min="1" step="1" placeholder="$ 0" required></label><label>Detalle<input id="expenseDetail" placeholder="Opcional"></label><button class="primary-action" type="submit">Guardar gasto</button></form>
+          <div class="content-card"><h3>Últimos gastos</h3><div id="expenseList"></div></div>
+        </div>
+      </section>
+
+      <section id="view-settings" class="view page-view">
+        <div class="page-head"><div><p class="eyebrow">CONFIGURACIÓN</p><h1>Productos y datos</h1></div></div>
+        <div class="two-cols settings-layout">
+          <div class="content-card"><h3>Precios del menú</h3><p class="muted">Editá los precios variables y cualquier otro producto.</p><div id="priceList"></div></div>
+          <div class="content-card danger-zone"><h3>Datos del sistema</h3><p>La información se guarda en este dispositivo.</p><button id="exportData" class="secondary-action full">Exportar copia de seguridad</button><label class="secondary-action full file-label">Importar copia<input id="importData" type="file" accept="application/json"></label><button id="resetData" class="text-btn danger-text">Borrar todos los movimientos</button></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal" aria-hidden="true"><div class="modal-backdrop" data-close-modal></div><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" data-close-modal aria-label="Cerrar">×</button><div id="modalBody"></div></div></div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
