@@ -90,8 +90,9 @@
 
       <section id="view-settings" class="view page-view">
         <div class="page-head"><div><p class="eyebrow">CONFIGURACIÓN</p><h1>Productos y datos</h1></div></div>
-        <div class="two-cols settings-layout">
-          <div class="content-card"><h3>Precios del menú</h3><p class="muted">Editá los precios variables y cualquier otro producto.</p><div id="priceList"></div></div>
+        <div class="settings-grid">
+          <div class="content-card settings-products"><div class="settings-card-head"><div><h3>Productos del menú</h3><p class="muted">Agregá, eliminá y configurá precios fijos o manuales.</p></div><button id="addProductSetting" class="secondary-action">+ Agregar producto</button></div><div id="priceList"></div></div>
+          <div class="content-card"><div class="settings-card-head"><div><h3>Categorías de gastos</h3><p class="muted">Administrá las opciones disponibles al registrar gastos.</p></div><button id="addExpenseCategory" class="secondary-action">+ Agregar</button></div><div id="expenseCategoryList" class="settings-list"></div></div>
           <div class="content-card danger-zone"><h3>Datos del sistema</h3><p>La información se guarda en este dispositivo.</p><button id="exportData" class="secondary-action full">Exportar copia de seguridad</button><label class="secondary-action full file-label">Importar copia<input id="importData" type="file" accept="application/json"></label><button id="resetData" class="text-btn danger-text">Borrar todos los movimientos</button></div>
         </div>
       </section>
