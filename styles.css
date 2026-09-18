@@ -55,3 +55,34 @@
   .quick-notes{margin:0}.quick-notes button{padding:4px 6px}
   .paid-check{font-size:12px}.total-row{margin:4px 0}.primary-action{min-height:37px}
 }
+
+/* Final density balance: smaller photos, larger names and a roomier ticket. */
+@media (min-width:851px){
+  .pos-view.active{grid-template-columns:minmax(0,1fr) clamp(460px,27vw,520px)}
+  .product-image,.product-placeholder{height:100px}
+  .product-info{padding:6px 8px 7px}
+  .product-info h3{font-size:15px;line-height:1.2;margin-bottom:5px}
+  .product-price{font-size:15px}
+  .product-stock{font-size:11px}
+  .add-mark{width:25px;height:25px}
+  .ticket-head{padding-left:22px;padding-right:22px}
+  .compact-grid,.cart,.notes-area,.ticket-footer{padding-left:22px;padding-right:22px}
+  .quick-notes{overflow:visible;flex-wrap:wrap}
+}
+@media (min-width:851px) and (max-width:1120px){
+  .pos-view.active{grid-template-columns:minmax(0,1fr) clamp(420px,41vw,460px)}
+  .product-info h3{font-size:14px}
+}
+@media (min-width:851px) and (max-height:850px){
+  .pos-view.active{grid-template-columns:minmax(0,1fr) clamp(480px,28vw,530px)}
+  .product-image,.product-placeholder{height:80px}
+  .product-info{padding:5px 7px 6px}
+  .product-info h3{font-size:14px;line-height:1.15;margin-bottom:4px}
+  .product-price{font-size:14px}.product-stock{font-size:10px}
+  .ticket-head{padding-left:22px;padding-right:22px}
+  .compact-grid,.cart,.notes-area,.ticket-footer{padding-left:22px;padding-right:22px}
+}
+@media (min-width:851px) and (max-height:700px){
+  .notes-area{display:block}
+  .quick-notes{margin-bottom:5px}
+}
