@@ -137,3 +137,5 @@
 }
 
 .order-actions .cancel-order{color:var(--red);border-color:rgba(255,107,107,.45)}
+
+.confirm-copy{color:var(--muted);margin:0 0 22px;line-height:1.55}.modal-actions{display:grid;grid-template-columns:1fr 1.35fr;gap:10px}.modal-actions .primary-action{min-height:44px}.danger-action{background:var(--red);color:#190707}
