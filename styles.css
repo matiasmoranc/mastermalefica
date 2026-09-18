@@ -4,3 +4,15 @@
 @media(max-width:850px){.topbar{height:64px;padding:0 14px;gap:12px}.brand small,.day-summary{display:none}.main-nav{overflow:auto}.nav-btn{min-width:62px;justify-content:center;font-size:12px}.nav-btn span{display:none}.count-badge{position:absolute;top:8px;right:4px}.pos-view.active{height:auto;min-height:calc(100vh - 64px);display:flex;flex-direction:column}.catalog-panel{padding:20px 14px 13px;overflow:visible}.catalog-head{align-items:stretch;flex-direction:column;gap:14px}.catalog-head h1{font-size:25px}.search{width:100%}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-info{padding:10px}.ticket-panel{border:0;border-top:1px solid var(--line);min-height:70vh}.ticket-head{padding-top:18px}.page-view{padding:24px 14px 45px}.order-board,.stats-grid,.two-cols,.expense-layout,.settings-layout{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.table-card{overflow:auto}.table-row{min-width:650px}.page-head{align-items:flex-start}.toolbar{align-items:stretch;flex-direction:column;gap:10px}.wide{width:100%}.segmented{align-self:flex-start}}
 @media(max-width:420px){.product-card .product-image,.product-placeholder{aspect-ratio:1.45/1}.compact-grid{padding-left:16px;padding-right:16px}.ticket-head,.cart,.notes-area,.ticket-footer{padding-left:16px;padding-right:16px}.stats-grid{grid-template-columns:1fr}.category-tabs{margin-right:-14px}.page-head h1{font-size:26px}}
 @media print{.topbar,.order-actions,.modal,.toast{display:none!important}body{background:#fff;color:#000}.order-card{border:0}}
+
+/* Compact product catalog: more items visible without losing legibility. */
+.product-grid{grid-template-columns:repeat(5,minmax(145px,1fr));gap:10px}
+.product-image,.product-placeholder{width:100%;height:112px;aspect-ratio:auto}
+.product-info{padding:9px 11px 10px}
+.product-info h3{font-size:13px;margin-bottom:4px}
+.product-price{font-size:14px}
+.add-mark{width:23px;height:23px;border-radius:8px}
+@media(min-width:1500px){.product-grid{grid-template-columns:repeat(6,minmax(145px,1fr))}}
+@media(max-width:1120px){.product-grid{grid-template-columns:repeat(3,minmax(140px,1fr))}.product-image,.product-placeholder{height:105px}}
+@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-image,.product-placeholder{height:110px}}
+@media(max-width:420px){.product-card .product-image,.product-placeholder{height:96px;aspect-ratio:auto}}
