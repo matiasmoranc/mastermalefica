@@ -135,3 +135,5 @@
     right: 7px;
   }
 }
+
+.order-actions .cancel-order{color:var(--red);border-color:rgba(255,107,107,.45)}
