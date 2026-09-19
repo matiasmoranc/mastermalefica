@@ -164,7 +164,8 @@
 .qty-controls strong{min-width:26px;text-align:center;font-size:17px}
 .cart-name{font-size:15px;line-height:1.25}
 .cart-extras{font-size:12px;margin-top:3px}
-.cart-line strong{font-size:15px}
+.cart-line{display:flex;align-items:center;justify-content:flex-end;gap:6px}
+.cart-line strong{display:block;font-size:15px}
 .cart-line button{width:28px;height:28px;padding:0;text-align:center;font-size:23px;line-height:1;color:#a89eaa}
 .sales-head{align-items:flex-end}
 .sales-filters{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
