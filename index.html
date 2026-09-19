@@ -19,8 +19,8 @@
       <nav class="main-nav" aria-label="Secciones">
         <button class="nav-btn active" data-view="pos"><span>⌁</span>Caja</button>
         <button class="nav-btn" data-view="orders"><span>▤</span>Pedidos <b id="pendingBadge" class="count-badge">0</b></button>
-        <button class="nav-btn" data-view="stock"><span>◇</span>Stock</button>
         <button class="nav-btn" data-view="sales"><span>↗</span>Ventas</button>
+        <button class="nav-btn" data-view="stock"><span>◇</span>Stock</button>
         <button class="nav-btn" data-view="expenses"><span>−</span>Gastos</button>
         <button class="nav-btn" data-view="settings"><span>⚙</span>Ajustes</button>
       </nav>
@@ -54,7 +54,7 @@
             <textarea id="notes" rows="2" placeholder="Observaciones para cocina"></textarea>
           </div>
           <div class="ticket-footer">
-            <label class="paid-check"><input id="paymentConfirmed" type="checkbox" checked><span></span>Pago confirmado</label>
+            <label class="paid-check"><input id="paymentConfirmed" type="checkbox"><span></span>Pago confirmado</label>
             <div class="total-row"><span>Total</span><strong id="cartTotal">$0</strong></div>
             <button id="saveOrder" class="primary-action" disabled><span>Registrar pedido</span><strong id="actionTotal">$0</strong></button>
           </div>
@@ -73,8 +73,8 @@
       </section>
 
       <section id="view-sales" class="view page-view">
-        <div class="page-head"><div><p class="eyebrow">RENDIMIENTO</p><h1>Ventas</h1></div><label class="date-field">Fecha<input id="salesDate" type="date"></label></div>
-        <div id="salesStats" class="stats-grid"></div>
+        <div class="page-head sales-head"><div><p class="eyebrow">RENDIMIENTO</p><h1>Ventas</h1></div><div class="sales-filters"><input id="salesDate" type="hidden"><label class="date-field">Desde<input id="salesFrom" type="date"></label><label class="date-field">Hasta<input id="salesTo" type="date"></label><label class="date-field">Comparar con<select id="salesCompare"><option value="none">Sin comparación</option><option value="previous">Período anterior</option><option value="week">Semana anterior</option><option value="month">Mes anterior</option></select></label></div></div>
+        <div id="salesStats" class="stats-grid sales-stats"></div>
         <div class="two-cols"><div class="content-card"><h3>Productos más vendidos</h3><div id="topProducts"></div></div><div class="content-card"><h3>Historial</h3><div id="salesHistory"></div></div></div>
       </section>
 
