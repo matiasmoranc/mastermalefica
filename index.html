@@ -73,18 +73,17 @@
       </section>
 
       <section id="view-sales" class="view page-view">
-        <div class="page-head sales-head"><div><p class="eyebrow">RENDIMIENTO</p><h1>Ventas</h1></div><div class="sales-period"><input id="salesDate" type="hidden"><label class="date-field">Desde<input id="salesFrom" type="date"></label><label class="date-field">Hasta<input id="salesTo" type="date"></label></div></div>
+        <div class="page-head sales-head"><div><p class="eyebrow">RENDIMIENTO</p><h1>Ventas</h1></div><div class="sales-period"><input id="salesDate" type="hidden"><label class="date-field">Mes<select id="salesMonth"></select></label><label class="date-field">Año<select id="salesYear"></select></label></div></div>
         <div id="salesStats" class="stats-grid sales-stats"></div>
-        <details class="sales-more"><summary>Más opciones</summary><div class="sales-advanced"><label class="date-field">Comparar con<select id="salesCompare"><option value="none">Sin comparación</option><option value="previous">Rango anterior (mismos días)</option><option value="week">Una semana antes</option><option value="month">Un mes antes</option></select></label><p>El rango anterior toma la misma cantidad de días justo antes del período elegido.</p></div></details>
+        <details class="sales-more"><summary>Más opciones: rango y comparación</summary><div class="sales-advanced"><label class="date-field">Desde<input id="salesFrom" type="date"></label><label class="date-field">Hasta<input id="salesTo" type="date"></label><label class="date-field">Comparar con<select id="salesCompare"><option value="none">Sin comparación</option><option value="previous">Rango anterior (mismos días)</option><option value="week">Una semana antes</option><option value="month">Un mes antes</option></select></label><p>Al elegir un rango se usa en lugar del mes. El período anterior toma la misma cantidad de días justo antes del rango elegido.</p></div></details>
         <div class="two-cols"><div class="content-card"><h3>Productos más vendidos</h3><div id="topProducts"></div></div><div class="content-card"><h3>Historial</h3><div id="salesHistory"></div></div></div>
       </section>
 
       <section id="view-expenses" class="view page-view">
         <div class="page-head"><div><p class="eyebrow">CAJA</p><h1>Gastos</h1></div></div>
-        <div id="expenseStats" class="stats-grid"></div>
         <div class="two-cols expense-layout">
           <form id="expenseForm" class="content-card form-card"><h3>Registrar gasto</h3><label>Fecha<input id="expenseDate" type="date" required></label><label>Categoría<select id="expenseCategory"></select></label><label>Importe<input id="expenseAmount" type="number" min="1" step="1" placeholder="$ 0" required></label><label>Detalle<input id="expenseDetail" placeholder="Opcional"></label><button class="primary-action" type="submit">Guardar gasto</button></form>
-          <div class="content-card"><h3>Últimos gastos</h3><div id="expenseList"></div></div>
+          <div class="expense-results"><details class="sales-more expense-filters" open><summary>Ver gastos</summary><div class="sales-advanced"><div class="period-selects"><label class="date-field">Mes<select id="expenseMonth"></select></label><label class="date-field">Año<select id="expenseYear"></select></label></div><label class="date-field">Desde<input id="expenseFrom" type="date"></label><label class="date-field">Hasta<input id="expenseTo" type="date"></label><p>Elegí un mes o indicá un rango de fechas para revisar los gastos.</p></div></details><div id="expenseStats" class="stats-grid"></div><div class="content-card"><h3>Gastos del período</h3><div id="expenseList"></div></div></div>
         </div>
       </section>
 
