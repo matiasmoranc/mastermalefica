@@ -187,5 +187,5 @@ input,textarea,[contenteditable="true"]{-webkit-user-select:text;user-select:tex
 @media(max-width:850px){#salesHistory{max-height:56vh}.history-sale-main{padding-top:12px;padding-bottom:12px}.history-sale-main b,.history-sale-main strong{font-size:15px}.history-sale-main small{font-size:12px}.history-sale-remove{top:13px}}
 @media(max-width:850px){.product-setting-row{position:relative;grid-template-columns:minmax(0,1fr);padding-right:42px}.product-setting-row>.icon-danger{position:absolute;right:0;top:8px}.product-setting-row .manual-price-check,.product-setting-row>input{grid-column:1}}
 #expenseList{max-height:720px;overflow-y:auto;scrollbar-gutter:stable;padding-right:4px}
-.sales-today{height:39px;border:1px solid var(--lime);border-radius:10px;background:var(--lime);color:#171217;padding:0 13px;font-size:13px;font-weight:850;cursor:pointer}
+.sales-today{height:39px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--muted);padding:0 13px;font-size:13px;font-weight:850;cursor:pointer}.sales-today.active{border-color:var(--lime);background:var(--lime);color:#171217}
 @media(max-width:850px){.sales-period{grid-template-columns:auto 1fr 1fr}.sales-today{width:100%;padding:0 10px}}
