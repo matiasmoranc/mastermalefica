@@ -73,7 +73,7 @@
       </section>
 
       <section id="view-sales" class="view page-view">
-        <div class="page-head sales-head"><div><p class="eyebrow">RENDIMIENTO</p><h1>Ventas</h1></div><div class="sales-period"><input id="salesDate" type="hidden"><label class="date-field">Mes<select id="salesMonth"></select></label><label class="date-field">Año<select id="salesYear"></select></label></div></div>
+        <div class="page-head sales-head"><div><p class="eyebrow">RENDIMIENTO</p><h1>Ventas</h1></div><div class="sales-period"><input id="salesDate" type="hidden"><button id="salesToday" class="sales-today" type="button">Hoy</button><label class="date-field">Mes<select id="salesMonth"></select></label><label class="date-field">Año<select id="salesYear"></select></label></div></div>
         <div id="salesStats" class="stats-grid sales-stats"></div>
         <details class="sales-more"><summary>Más opciones: rango y comparación</summary><div class="sales-advanced"><label class="date-field">Desde<input id="salesFrom" type="date"></label><label class="date-field">Hasta<input id="salesTo" type="date"></label><label class="date-field">Comparar con<select id="salesCompare"><option value="none">Sin comparación</option><option value="previous">Rango anterior (mismos días)</option><option value="week">Una semana antes</option><option value="month">Un mes antes</option></select></label><p>Al elegir un rango se usa en lugar del mes. El período anterior toma la misma cantidad de días justo antes del rango elegido.</p></div></details>
         <div class="two-cols"><div class="content-card"><h3>Productos más vendidos</h3><div id="topProducts"></div></div><div class="content-card"><h3>Historial</h3><div id="salesHistory"></div></div></div>
